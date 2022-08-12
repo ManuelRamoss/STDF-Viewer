@@ -1043,37 +1043,8 @@ cdef class stdfSummarizer:
             const char* insertTestPin = '''INSERT OR IGNORE INTO TestPin_Map VALUES (:TEST_ID, :PMR_INDX, :PIN_TYPE);'''
             const char* insertDynamicLimit = '''INSERT OR REPLACE INTO Dynamic_Limits VALUES (:DUTIndex, :TEST_ID, :LLimit ,:HLimit);'''
             const char* insertDatalog = '''INSERT INTO Datalog VALUES (:RecordType, :Value, :AfterDUTIndex ,:isBeforePRR);'''
-
-        # init sqlite3 database api
-        try:
-            csqlite3_open(dbPath, &self.db_ptr)
-            csqlite3_exec(self.db_ptr, createTableSql)
-            csqlite3_prepare_v2(self.db_ptr, insertFileInfo, &self.insertFileInfo_stmt)
-            csqlite3_prepare_v2(self.db_ptr, insertDut, &self.insertDut_stmt)
-            csqlite3_prepare_v2(self.db_ptr, updateDut, &self.updateDut_stmt)
-            csqlite3_prepare_v2(self.db_ptr, insertTR, &self.insertTR_stmt)
-            # csqlite3_prepare_v2(self.db_ptr, updateTR, &self.updateTR_stmt)
-            csqlite3_prepare_v2(self.db_ptr, insertTestInfo, &self.insertTestInfo_stmt)
-            csqlite3_prepare_v2(self.db_ptr, insertHBIN, &self.insertHBIN_stmt)
-            # csqlite3_prepare_v2(self.db_ptr, updateHBIN, &self.updateHBIN_stmt)
-            csqlite3_prepare_v2(self.db_ptr, insertSBIN, &self.insertSBIN_stmt)
-            # csqlite3_prepare_v2(self.db_ptr, updateSBIN, &self.updateSBIN_stmt)
-            csqlite3_prepare_v2(self.db_ptr, insertDutCount, &self.insertDutCount_stmt)
-            csqlite3_prepare_v2(self.db_ptr, insertWafer, &self.insertWafer_stmt)
-            csqlite3_prepare_v2(self.db_ptr, insertPinMap, &self.insertPinMap_stmt)
-            csqlite3_prepare_v2(self.db_ptr, updateFrom_GRP, &self.updateFrom_GRP_stmt)
-            csqlite3_prepare_v2(self.db_ptr, insertGRP_NAM, &self.insertGRP_NAM_stmt)
-            csqlite3_prepare_v2(self.db_ptr, insertPinInfo, &self.insertPinInfo_stmt)
-            csqlite3_prepare_v2(self.db_ptr, insertTestPin, &self.insertTestPin_stmt)
-            csqlite3_prepare_v2(self.db_ptr, insertDynamicLimit, &self.insertDynamicLimit_stmt)
-            csqlite3_prepare_v2(self.db_ptr, insertDatalog, &self.insertDatalog_stmt)
-        except Exception:
-            try:
-                csqlite3_close(self.db_ptr)
-            except Exception as e:
-                logger.error("Error when close database: " + repr(e))
-            raise
-
+        
+        
         # get file size in Bytes
         if not isinstance(filepath, str):
             raise TypeError("File path is not type <str>")
