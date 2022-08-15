@@ -386,7 +386,7 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
                             if isValidSignal:
                                 QSignal.emit(tmpRes)
                             else:
-                                resultLog += tmpRes + "a \n"
+                                resultLog += tmpRes + "\n"
                             
                         # write PXR and WXR right now, since we need to print head number of site number
                         parse_record(&pRec, item.pData.recHeader, item.pData.rawData, item.pData.binaryLen)
@@ -411,7 +411,7 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
                             if isValidSignal:
                                 QSignal.emit(tmpRes)
                             else:
-                                resultLog += tmpRes + "\n"
+                                resultLog += tmpRes + "a \n"
                             
                         elif item.pData.recHeader == REC_PRR:
                             HEAD_NUM    = (<PRR*>pRec).HEAD_NUM
