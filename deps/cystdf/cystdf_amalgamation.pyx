@@ -420,7 +420,7 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
                             if isValidSignal:
                                 QSignal.emit(tmpRes)
                             else:
-                                resultLog += tmpRes + free_record(item.pData.recHeader, item.pData.rowData) + "\n"
+                                resultLog += tmpRes + "\n"
                             
                         else:
                             HEAD_NUM = (<WRR*>pRec).HEAD_NUM
@@ -428,7 +428,7 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
                             if isValidSignal:
                                 QSignal.emit(tmpRes)
                             else:
-                                resultLog += tmpRes + "\n"
+                                resultLog += tmpRes + item.pData + "\n"
                             
                         free_record(item.pData.recHeader, pRec)
                         # reset preheader to 0, in order to print every PXR WXR
