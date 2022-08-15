@@ -420,7 +420,7 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
                             if isValidSignal:
                                 QSignal.emit(tmpRes)
                             else:
-                                resultLog += tmpRes + "\n"
+                                resultLog += tmpRes + item.pData.offset + "\n"
                             
                         else:
                             HEAD_NUM = (<WRR*>pRec).HEAD_NUM
@@ -443,7 +443,7 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
                                 if isValidSignal:
                                     QSignal.emit(tmpRes)
                                 else:
-                                    resultLog += tmpRes + "\a n"
+                                    resultLog += tmpRes + "\n"
                                 
                             # update new
                             preRecHeader = item.pData.recHeader
