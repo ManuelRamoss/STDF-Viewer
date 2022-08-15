@@ -411,7 +411,7 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
                             if isValidSignal:
                                 QSignal.emit(tmpRes)
                             else:
-                                resultLog += tmpRes + "a \n"
+                                resultLog += tmpRes + "\n"
                             
                         elif item.pData.recHeader == REC_PRR:
                             HEAD_NUM    = (<PRR*>pRec).HEAD_NUM
@@ -443,7 +443,7 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
                                 if isValidSignal:
                                     QSignal.emit(tmpRes)
                                 else:
-                                    resultLog += tmpRes + "\n"
+                                    resultLog += tmpRes + "\a n"
                                 
                             # update new
                             preRecHeader = item.pData.recHeader
