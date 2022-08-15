@@ -386,7 +386,7 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
                             if isValidSignal:
                                 QSignal.emit(tmpRes)
                             else:
-                                resultLog += tmpRes + "\n"
+                                resultLog += tmpRes + "a \n"
                             
                         # write PXR and WXR right now, since we need to print head number of site number
                         parse_record(&pRec, item.pData.recHeader, item.pData.rawData, item.pData.binaryLen)
@@ -1209,7 +1209,7 @@ cdef class stdfSummarizer:
             pthread_join(pth, NULL)
             pthread_kill(pth, 0)
             message_queue_destroy(&parseQ)
-            self.after_complete()
+            #self.after_complete()
         
         
     def after_complete(self):
