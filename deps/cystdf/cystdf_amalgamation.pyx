@@ -428,7 +428,7 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
                             if isValidSignal:
                                 QSignal.emit(tmpRes)
                             else:
-                                resultLog += tmpRes + item.pData + "\n"
+                                resultLog += tmpRes + "\n"
                             
                         free_record(item.pData.recHeader, pRec)
                         # reset preheader to 0, in order to print every PXR WXR
