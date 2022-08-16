@@ -1,5 +1,5 @@
 import _cystdf
-import _cystdf.signal4Analyzer
+
 import sys
 import numpy as np
 
@@ -13,7 +13,7 @@ class SelfObject:
   waferInfoDict = {}
   failCntDict = {}
   dutArray = np.array([]) 
-  signals = signal4Analyzer()
+  signals = _cystdf.signal4Analyzer()
   resultSignal = self.signals.resultSignal
   progressSignal = self.signals.progressSignal
   finishSignal = self.signals.finishSignal
