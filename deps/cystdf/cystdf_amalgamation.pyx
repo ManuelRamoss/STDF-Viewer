@@ -372,7 +372,7 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
                 else:
                     tmpRes = "Byte Order: little endian"
                 if isValidSignal:
-                    QSignal.emit(tmpRes)
+                    #QSignal.emit(tmpRes)
                 else:
                     resultLog += tmpRes + "\n"
                     
