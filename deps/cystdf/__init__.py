@@ -23,7 +23,6 @@
 #
 
 
-
 import numpy as np
 try:
     from . import _cystdf

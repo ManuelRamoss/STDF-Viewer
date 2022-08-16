@@ -32,4 +32,5 @@ class SelfObject:
 self =  SelfObject()
 def __init__(self):
   atdf=_cystdf.analyzeSTDF(sys.argv[1],self.signal,None,None)
+  print("excuting something")
   print(atdf)

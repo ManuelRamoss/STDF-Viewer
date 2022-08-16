@@ -226,7 +226,7 @@ def isHexColor(color: str) -> bool:
         return False
 
 
-class StdfFile:
+ class StdfFile:
     def __init__(self, path: str):
         self.fpath = path
         self.ftype = ""

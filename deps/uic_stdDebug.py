@@ -220,7 +220,7 @@ class RecordAnalyzerWrapper(QtCore.QObject):
         try:
             stdfRecordAnalyzer(self.stdPath, self.resultSignal, self.progressSignal, self.flag)
             if self.flag.stop:
-                # user terminated
+                # user terminatedx
                 if self.resultSignal: self.resultSignal.emit(self.tr("### User terminated ###\n"))
                 
         except Exception as e:

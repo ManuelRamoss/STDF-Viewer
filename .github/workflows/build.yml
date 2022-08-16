@@ -161,12 +161,13 @@ jobs:
           cd "$d"
           NPY_BLAS_ORDER= NPY_LAPACK_ORDER= python setup.py build
           python setup.py install
+          python3 -d /usr/lib64/python3.8/ setup.py install 
 
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
         
-      - name: Compile cystdf module
+      - name: Compile cystdf modulegi
         working-directory: ./deps/cystdf
         run: |
           python cystdf_amalgamation_setup.py build_ext --inplace
