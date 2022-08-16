@@ -23,9 +23,9 @@ class SelfObject:
   failCntDict = {}
   dutArray = np.array([]) 
   signals = nxpSignal4Analyzer()
-  resultSignal = self.signals.resultSignal
-  progressSignal = self.signals.progressSignal
-  finishSignal = self.signals.finishSignal
+  resultSignal = signals.resultSignal
+  progressSignal = signals.progressSignal
+  finishSignal = signals.finishSignal
   stdPath='test_stdf.stdf.gz'
 
 class NXPCustom ():
