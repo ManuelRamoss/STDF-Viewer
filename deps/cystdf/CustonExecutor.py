@@ -1,7 +1,15 @@
 import _cystdf
+from PyQt5.QtCore import pyqtSignal as Signal
 
 import sys
 import numpy as np
+
+class nxpSignal4Analyzer(QtCore.QObject):
+    # get text from analyzer
+    resultSignal = Signal(str)
+    progressSignal = Signal(int)
+    # get finish signal from analyzer
+    finishSignal = Signal(bool)
 
 class SelfObject:
   self = {}
@@ -13,7 +21,7 @@ class SelfObject:
   waferInfoDict = {}
   failCntDict = {}
   dutArray = np.array([]) 
-  signals = _cystdf.signal4Analyzer()
+  signals = nxpSignal4Analyzer()
   resultSignal = self.signals.resultSignal
   progressSignal = self.signals.progressSignal
   finishSignal = self.signals.finishSignal
