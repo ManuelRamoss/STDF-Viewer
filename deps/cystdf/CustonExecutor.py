@@ -30,7 +30,6 @@ class SelfObject:
 
       # dict to store site/head checkbox objects
 self =  SelfObject()
-def __init__(self):
-  atdf=_cystdf.analyzeSTDF(sys.argv[1],self.signal,None,None)
-  print("excuting something")
-  print(atdf)
+atdf=_cystdf.analyzeSTDF(sys.argv[1],self.signal,None,None)
+print("excuting something")
+print(atdf)
