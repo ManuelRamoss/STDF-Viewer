@@ -1,7 +1,7 @@
 import _cystdf
 import sys
 
-class NXPCustom (self):
+class NXPCustom ():
       # dict to store site/head checkbox objects
     self.site_cb_dict = {}
     self.head_cb_dict = {}
