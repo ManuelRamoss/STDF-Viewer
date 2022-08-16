@@ -372,7 +372,7 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
                 else:
                     tmpRes = "Byte Order: little endian"
                 if isValidSignal:
-                    #QSignal.emit(tmpRes)
+                    QSignal.emit(tmpRes)
                 else:
                     resultLog += tmpRes + "\n"
                     
@@ -384,7 +384,7 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
                             # print previous result
                             tmpRes = "%s"%rec_name.get(preRecHeader, "") + " × %d"%recCnt if recCnt else ""
                             if isValidSignal:
-                                #QSignal.emit(tmpRes)
+                                QSignal.emit(tmpRes)
                             else:
                                 resultLog += tmpRes + "\n"
                             
@@ -396,20 +396,20 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
                             SITE_NUM = (<PIR*>pRec).SITE_NUM
                             tmpRes = "[%d] %s"%(dutCnt, rec_name.get(item.pData.recHeader, "")) + f" (HEAD: {HEAD_NUM}, SITE: {SITE_NUM})"
                             if isValidSignal:
-                                #QSignal.emit(tmpRes)
+                                QSignal.emit(tmpRes)
                             else:
                                 resultLog += tmpRes + "\n"
                             if isValidProgressSignal:
                                 currentProgress = (100 * item.pData.offset) // fileSize
                                 if currentProgress > previousProgress:
-                                    #QSignalPgs.emit(currentProgress)
+                                    QSignalPgs.emit(currentProgress)
                             
                         elif item.pData.recHeader == REC_WIR:
                             waferCnt += 1
                             HEAD_NUM = (<WIR*>pRec).HEAD_NUM
                             tmpRes = "%s"%rec_name.get(item.pData.recHeader, "") + f" (HEAD: {HEAD_NUM})"
                             if isValidSignal:
-                                #QSignal.emit(tmpRes)
+                                QSignal.emit(tmpRes)
                             else:
                                 resultLog += tmpRes + "\n"
                             
@@ -418,7 +418,7 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
                             SITE_NUM    = (<PRR*>pRec).SITE_NUM
                             tmpRes = "%s"%rec_name.get(item.pData.recHeader, "") + f" (HEAD: {HEAD_NUM}, SITE: {SITE_NUM})"
                             if isValidSignal:
-                                #QSignal.emit(tmpRes)
+                                QSignal.emit(tmpRes)
                             else:
                                 resultLog += tmpRes + "\n"
                             
@@ -426,7 +426,7 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
                             HEAD_NUM = (<WRR*>pRec).HEAD_NUM
                             tmpRes = "%s"%rec_name.get(item.pData.recHeader, "") + f" (HEAD: {HEAD_NUM})"
                             if isValidSignal:
-                                #QSignal.emit(tmpRes)
+                                QSignal.emit(tmpRes)
                             else:
                                 resultLog += tmpRes + "\n"
                             
@@ -441,7 +441,7 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
                             if preRecHeader != 0:
                                 tmpRes = "%s"%rec_name.get(preRecHeader, "") + " × %d"%recCnt if recCnt else ""
                                 if isValidSignal:
-                                    #QSignal.emit(tmpRes)
+                                    QSignal.emit(tmpRes)
                                 else:
                                     resultLog += tmpRes + "\n"
                                 
@@ -459,11 +459,11 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
                     # print last record
                     tmpRes = "%s"%rec_name.get(preRecHeader, "") + " × %d"%recCnt if recCnt else ""
                     if isValidSignal:
-                        #QSignal.emit(tmpRes)
+                        QSignal.emit(tmpRes)
                     else:
                         resultLog += tmpRes + "\n"
                     if isValidProgressSignal:
-                        #QSignalPgs.emit(100)
+                        QSignalPgs.emit(100)
                         
 
                 # check error
@@ -501,7 +501,7 @@ def analyzeSTDF(str filepath, QSignal=None, QSignalPgs=None, flag=None):
     tmpRes += "\nTotal records: %d\n"%totalRecord
     tmpRes += "Analysis Finished"
     if isValidSignal:
-       #QSignal.emit(tmpRes)
+        QSignal.emit(tmpRes)
     else:
         resultLog += tmpRes
     
