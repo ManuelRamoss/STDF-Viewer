@@ -1,4 +1,5 @@
 import _cystdf
+from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtCore import pyqtSignal as Signal
 
 import sys
